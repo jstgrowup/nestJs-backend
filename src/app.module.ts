@@ -4,6 +4,7 @@ import { AppService } from './app.service';
 import { BookModule } from './book/book.module';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
+import { AuthModule } from './auth/auth.module';
 
 console.log('process.env.DB_URI:', process.env.DB_URI);
 @Module({
@@ -14,6 +15,7 @@ console.log('process.env.DB_URI:', process.env.DB_URI);
     }),
     MongooseModule.forRoot(`${process.env.DB_URI}/nestjs`),
     BookModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
